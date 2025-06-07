@@ -35,7 +35,7 @@ cargo update
 cargo build
 cargo run
 ```
-
+![native](screenshots/native.png)
 ### Steps to compile as WASM and run in the browser
 
 WASM target: To enable Rust to compile to WebAssembly, install the `wasm32-unknown-unknown` target:
@@ -133,6 +133,7 @@ If you have **Bun** installed:
 ```bash
 bunx http-server . -a 0.0.0.0 -p 8080
 ```
+![native](screenshots/wasm.png)
 
 Then open your browser and go to *[http://localhost:8080](http://localhost:8080)* (or the port used by the server) to view your application. It can also be accessed from other devices on the local network by entering the server device’s IP address.
 
