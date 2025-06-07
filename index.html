@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WASM Application</title>
+    <style>
+        /* Canvas'ın tüm alanı kaplaması ve kaydırma çubuklarını önlemesi için temel stiller */
+        html, body {
+            height: 100%;
+            margin: 0;
+            overflow: hidden;
+            background-color: #30303000; /* Yükleme sırasında koyu arka plan */
+        }
+        canvas {
+            display: block; /* Satır içi blok boşluğunu kaldır */
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <!-- WASM kodu bu canvas'ı yeniden boyutlandıracak ve uygulamayı burada gösterecek -->
+    <canvas id="the_canvas_id"></canvas>
+
+    <!-- wasm-pack tarafından oluşturulan JavaScript dosyası -->
+    <script type="module">
+        // './dist/emartident_rust_wasm.js' yolu, wasm-pack çıktınıza göre ayarlanmalıdır.
+        import init, { start } from './dist/emartident_rust_wasm.js';
+
+        async function run() {
+            // Önce Wasm modülünü yükle
+            await init();
+
+            // lib.rs dosyasından dışa aktarılan 'start' fonksiyonunu çağır.
+            start('the_canvas_id');
+        }
+
+        run();
+    </script>
+</body>
+</html>
