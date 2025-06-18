@@ -27,7 +27,7 @@ pub struct Workspace {
 impl Workspace {
     pub fn ui(&mut self, parent_id: Id, open: &mut bool, ctx: &egui::Context, settings: &AppSettings) -> WorkspaceAction {
         let mut action_to_take = WorkspaceAction::None;
-        egui::SidePanel::new(Side::Left, parent_id.with("workspace_right_panel"))
+        egui::SidePanel::new(Side::Left, parent_id.with("workspace_left_panel"))
             .resizable(false)
             .show(ctx, |ui| {
                 ui.add_space(5.);
